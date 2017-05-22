@@ -33,11 +33,14 @@ getNews() {
   render() {
     return (
       <div className="App">
-        <iframe src="https://map.openchargemap.io/?mode=embedded" frameborder="0" height="500px" width="800px" >Map</iframe>
-        <GreenWeb />
-          <h2>Welcome to GreenScreen</h2>
+        <h2>Welcome to GreenScreen</h2>
+        <div className="row">
+          <GreenWeb />
           {/* <RedditNews getNews={() => this.getNews()}/> */}
           {this.state.reddit_news.length < 1 ? 'empty' : <RedditNews news={this.state.reddit_news} getIngredients={() => this.getNews()} />}
+          <iframe className="col s12 m4"src='https://interactive.guim.co.uk/embed/aus/2017/carbon-embed' frameborder='0' scrolling='no' width='100%' height='500px'></iframe>
+        </div>
+        <iframe src="https://map.openchargemap.io/?mode=embedded" frameborder="0" height="600px" width="100%" >Map</iframe>
       </div>
     );
   }
