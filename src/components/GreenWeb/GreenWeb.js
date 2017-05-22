@@ -3,20 +3,42 @@ import './GreenWeb.css';
 import axios from 'axios';
 
 export default class GreenWeb extends Component {
+  
   constructor(props) {
     super(props)
     this.state = {
-      website: [],
+      website: [
+        {
+          green: true,
+          hostedBy: 'Test',
+          hostedBywebsite: 'Website',
+          url: 'testing.com',
+        },
+        {
+          green: true,
+          hostedBy: 'Facebook',
+          hostedBywebsite: 'Website',
+          url: 'facebook.com',
+        }
+      ],
     }
   }
 
   checkWebsite = () => {
-    const URL = `http://api.thegreenwebfoundation.org/greencheck/facebook.com`;
-    axios.get(URL)
+    const URL = `http://api.thegreenwebfoundation.org/greencheck/`;
+    axios.get(URL + this.nameInput.value)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const websites = this.state.website;
-        this.setState({ website: [...websites, response.data] });
+        const saveData = {
+          green: response.data.green, 
+          hostedBy: response.data.hostedby,
+          hostedByWebsite: response.data.hostedbywebsite,
+          url: response.data.url
+        }
+        this.setState({ 
+          website: [...websites, saveData]
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -26,9 +48,21 @@ export default class GreenWeb extends Component {
   render() {
     return (
       <div>
-        <h1 onClick={() => { this.checkWebsite() }}>
-          FROM GREENWEB COMPONENT
-        </h1>
+        <input type="text" ref={(input) => { this.nameInput = input; }} />
+        <button onClick={() => { this.checkWebsite() }}>
+          Get website
+        </button>
+        <ul>
+          {this.state.website.map((data, index) => 
+            <li key={index}>{data.url} is&nbsp;
+              {data.green ? 
+                <span className={'isGreen'}>green!</span> 
+                : 
+                <span className={'isNotGreen'}>not green!</span>
+              }
+            </li>
+          )}
+        </ul>
       </div>
     )
   }
