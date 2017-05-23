@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.scroll {
+  height: 550px;
+  overflow-y: scroll;
+
+}

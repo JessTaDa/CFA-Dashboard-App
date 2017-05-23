@@ -1,9 +1,22 @@
 div.scroll {
-  height: 500px;
+  height: 550px;
   overflow-y: scroll;
 
 }
 
+.row {
+  margin-bottom: auto;
+}
+
+.collection.with-header .collection-item {
+  padding: 10px;
+}
+
 .reddit-item {
   text-align: left;
+}
+
+.score-text {
+  font-size: 1.1em;
+  color: #EE4000;
 }

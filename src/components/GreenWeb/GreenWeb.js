@@ -3,7 +3,7 @@ import './GreenWeb.css';
 import axios from 'axios';
 
 export default class GreenWeb extends Component {
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -49,12 +49,12 @@ export default class GreenWeb extends Component {
         console.log(response.data);
         const websites = this.state.website;
         const saveData = {
-          green: response.data.green, 
+          green: response.data.green,
           hostedBy: response.data.hostedby,
           hostedByWebsite: response.data.hostedbywebsite,
           url: response.data.url
         }
-        this.setState({ 
+        this.setState({
           website: [...websites, saveData]
         });
       })
@@ -65,17 +65,17 @@ export default class GreenWeb extends Component {
 
   render() {
     return (
-      <div className="col s12 m4">
+      <div className="col s12 m3">
         <input type="text" ref={(input) => { this.nameInput = input; }} />
         <button onClick={() => { this.checkWebsite() }}>
           Get website
         </button>
         <ul className="collection">
-          {this.state.website.map((data, index) => 
+          {this.state.website.map((data, index) =>
             <li className="collection-item" key={index}>{data.url} is&nbsp;
-              {data.green ? 
-                <span className={'isGreen'}>green!</span> 
-                : 
+              {data.green ?
+                <span className={'isGreen'}>green!</span>
+                :
                 <span className={'isNotGreen'}>not green!</span>
               }
             </li>
