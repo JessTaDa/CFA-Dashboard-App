@@ -20,3 +20,7 @@ div.scroll {
   font-size: 1.1em;
   color: #EE4000;
 }
+
+.collection.with-header .collection-header, .collection .collection-item {
+  background-color: rgba(0, 0, 0, 0.35);
+}

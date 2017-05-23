@@ -45,32 +45,35 @@ export default class GreenWeb extends Component {
   checkWebsite = () => {
     const URL = `http://api.thegreenwebfoundation.org/greencheck/`;
     axios.get(URL + this.nameInput.value)
-      .then((response) => {
-        console.log(response.data);
-        const websites = this.state.website;
-        const saveData = {
-          green: response.data.green,
-          hostedBy: response.data.hostedby,
-          hostedByWebsite: response.data.hostedbywebsite,
-          url: response.data.url
-        }
-        this.setState({
-          website: [...websites, saveData]
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    .then((response) => {
+      console.log(response.data);
+      const websites = this.state.website;
+      const saveData = {
+        green: response.data.green,
+        hostedBy: response.data.hostedby,
+        hostedByWebsite: response.data.hostedbywebsite,
+        url: response.data.url
+      }
+      this.setState({
+        website: [...websites, saveData]
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   render() {
     return (
       <div className="col s12 m3">
-        <input type="text" ref={(input) => { this.nameInput = input; }} />
-        <button onClick={() => { this.checkWebsite() }}>
-          Get website
-        </button>
-        <ul className="collection">
+        <ul className="collection with-header">
+          <li className="collection-header"><h4>GreenHost</h4></li>
+          <li className="collection-item">
+            <input type="text" ref={(input) => { this.nameInput = input; }} />
+            <button color="text-dark" onClick={() => { this.checkWebsite() }}>
+            Get website
+          </button>
+        </li>
           {this.state.website.map((data, index) =>
             <li className="collection-item" key={index}>{data.url} is&nbsp;
               {data.green ?

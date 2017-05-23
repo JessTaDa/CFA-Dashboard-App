@@ -19,7 +19,7 @@ class RedditNews extends React.Component {
                   {news_item.data.score}
                 </div>
                 <div className="col s11">
-                  <a href={`http://reddit.com/${news_item.data.permalink}`}>{news_item.data.title}</a>
+                  <a href={`http://reddit.com/${news_item.data.permalink}`} target="_blank">{news_item.data.title}</a>
                   <br/>
                   <a href={`http://reddit.com/u/${news_item.data.author}`}>/u/{news_item.data.author}</a> |
                   <a href={`http://reddit.com/${news_item.data.permalink}`}> {news_item.data.num_comments} comments</a>

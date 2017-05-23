@@ -1,9 +1,42 @@
 .App {
   text-align: center;
+  color: white;
+  font-weight: 400;
+}
+
+a {
+  color: #00A5F9;
+}
+
+h2, h4 {
+  font-weight: 300
+}
+
+.text-bg {
+  background-color: rgba(0, 0, 0, 0.35);
+  color: white;
+
+}
+
+.bg {
+  background-size: cover;
+  overflow: hidden;
+  background: no-repeat;
 }
 
 .scroll {
   height: 550px;
   overflow-y: scroll;
+}
 
+.chartTitle, #budgetUsed, .subText {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.map {
+  padding-top: 550px;
+  padding-bottom: 50px;
+}
+button {
+  color: black;
 }
