@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   getNews() {
-    const URL = 'http://www.reddit.com/r/green/hot.json'
+    const URL = 'https://www.reddit.com/r/green/hot.json'
     axios.get(URL)
     .then((response) => { //need to escape the context another option is to use bind
       this.setState({ reddit_news: response.data.data.children })
