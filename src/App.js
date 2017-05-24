@@ -3,6 +3,8 @@ import './App.css';
 import GreenWeb from './components/GreenWeb/GreenWeb';
 import axios from 'axios';
 import RedditNews from './components/RedditNews/RedditNews';
+import Population from './components/Population/Population';
+
 
 class App extends Component {
 
@@ -58,7 +60,7 @@ class App extends Component {
     return (
       <div className="App bg" style={{backgroundImage: `url(${this.state.background})`}}>
         <h2 className="text-bg">Ominous</h2>
-        
+
         <Population />
         <div className="row">
           <GreenWeb />

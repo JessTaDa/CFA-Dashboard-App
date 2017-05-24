@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Population.css';
 import axios from 'axios';
 
 export default class GreenWeb extends Component {
