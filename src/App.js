@@ -57,7 +57,9 @@ class App extends Component {
   render() {
     return (
       <div className="App bg" style={{backgroundImage: `url(${this.state.background})`}}>
-        <h2 className="text-bg">ominous</h2>
+        <h2 className="text-bg">Ominous</h2>
+        
+        <Population />
         <div className="row">
           <GreenWeb />
           {/* <RedditNews getNews={() => this.getNews()}/> */}
